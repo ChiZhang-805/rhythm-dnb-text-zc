@@ -1,0 +1,8 @@
+# CUDA torch is installed separately from the matching official wheel index.
+torch==2.8.0
+transformers==5.17.0
+safetensors==0.8.0
+openpyxl==3.1.5
+numpy==2.5.3
+# Used only by the optional full corpus near-duplicate audit.
+scikit-learn==1.9.1

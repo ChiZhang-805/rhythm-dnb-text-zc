@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNB 文本评分</title>
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header><div class="brand"><span class="wordmark">DNB</span><span>文本评分</span></div><div class="status-group"><span id="status" role="status">正在连接</span><button id="refresh" type="button">刷新状态</button></div></header>
+  <main>
+    <section class="input-section" aria-labelledby="input-title">
+      <div class="section-heading"><h1 id="input-title">文本输入</h1><span id="count">0 字符</span></div>
+      <form id="scoring-form">
+        <label for="category">文本类别</label>
+        <select id="category" name="category" required disabled><option value="">正在加载</option></select>
+        <label for="text">中文文本</label>
+        <textarea id="text" name="text" maxlength="10000" placeholder="输入中文文本" required></textarea>
+        <div class="actions"><button id="clear" type="button">清空</button><button id="submit" type="submit" disabled>评分</button></div>
+      </form>
+      <p id="error" role="alert" hidden></p>
+    </section>
+    <section class="output-section" aria-labelledby="output-title">
+      <div class="section-heading"><h2 id="output-title">评分结果</h2><span class="scale">0–100</span></div>
+      <div id="result-status" role="status">等待评分</div>
+      <div id="metrics"></div>
+      <div id="model-info"></div>
+      <details id="json-detail" hidden><summary>JSON 结果</summary><button id="copy" type="button">复制</button><pre id="json"></pre></details>
+    </section>
+  </main>
+  <footer><span>MacBERT · 中文语义评分</span><span id="deployment-mode">本地测试</span></footer>
+</body>
+</html>
